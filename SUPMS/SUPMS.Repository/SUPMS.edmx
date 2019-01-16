@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SUPMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="FEATUREASSIGN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENTITY" Type="int" />
+          <Property Name="ENTITYID" Type="int" />
+          <Property Name="ASSIGNTYPE" Type="int" />
+          <Property Name="ASSIGNUSER" Type="int" />
+          <Property Name="ASSIGNEDDATE" Type="datetime" />
+          <Property Name="ASSIGNEDBY" Type="int" />
+        </EntityType>
+        <EntityType Name="FEATUREASSIGN_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ENTITY" Type="int" />
+          <Property Name="ENTITYID" Type="int" />
+          <Property Name="ASSIGNTYPE" Type="int" />
+          <Property Name="ASSIGNUSER" Type="int" />
+          <Property Name="ASSIGNEDDATE" Type="datetime" />
+          <Property Name="ASSIGNEDBY" Type="int" />
+        </EntityType>
+        <EntityType Name="FEATURES">
+          <Key>
+            <PropertyRef Name="FEATUREID" />
+          </Key>
+          <Property Name="FEATUREID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="FEATUREXML" Type="nvarchar(max)" />
+          <Property Name="COMPANYID" Type="int" />
+          <Property Name="CREATEDBY" Type="int" />
+          <Property Name="CREATEDDATE" Type="datetime" />
+          <Property Name="MODULE" Type="int" />
+          <Property Name="MODULENAME" Type="nvarchar" MaxLength="400" />
+          <Property Name="ACTION" Type="nvarchar" MaxLength="300" />
+          <Property Name="CONTROLLER" Type="nvarchar" MaxLength="300" />
+          <Property Name="AREA" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="GRIDVIEWS">
+          <Key>
+            <PropertyRef Name="VIEWSEQNO" />
+          </Key>
+          <Property Name="VIEWSEQNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VIEWNAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="TABLENAME" Type="nvarchar(max)" />
+          <Property Name="ALIASTABLENAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PRIMARYCOLUMN" Type="nvarchar" MaxLength="200" />
+          <Property Name="FEATUREID" Type="int" />
+          <Property Name="SELECTEDCOLUMNS" Type="nvarchar(max)" />
+          <Property Name="ALIASCOLUMNS" Type="nvarchar(max)" />
+          <Property Name="COLUMNSTYPE" Type="nvarchar(max)" />
+          <Property Name="COLUMNWIDTHS" Type="nvarchar(max)" />
+          <Property Name="APPQUERY" Type="nvarchar(max)" />
+          <Property Name="WHERECONDITION" Type="nvarchar(max)" />
+          <Property Name="QUERY" Type="nvarchar(max)" />
+          <Property Name="FITLERBYTENANT" Type="bit" />
+          <Property Name="ISSYSTEMVIEW" Type="bit" />
+          <Property Name="COMPANYID" Type="int" />
+          <Property Name="CREATEDBY" Type="int" />
+          <Property Name="CREATEDDATE" Type="datetime" />
+          <Property Name="MODIFIEDBY" Type="int" />
+          <Property Name="MODIFIEDDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ROLES">
+          <Key>
+            <PropertyRef Name="ROLEID" />
+          </Key>
+          <Property Name="ROLEID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="DESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="COMPANYID" Type="int" />
+          <Property Name="ISSYSTEMROLE" Type="bit" />
+          <Property Name="CREATEDBY" Type="int" />
+          <Property Name="CREATEDDATE" Type="datetime" />
+          <Property Name="MODIFIEDBY" Type="int" />
+          <Property Name="MODIFIEDDATE" Type="datetime" />
+          <Property Name="FEATURESXML" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="USERGROUPMAPPING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERGROUPSEQNO" Type="int" />
+          <Property Name="USERID" Type="int" />
+        </EntityType>
+        <EntityType Name="USERGROUPS">
+          <Key>
+            <PropertyRef Name="USERGROUPSEQNO" />
+          </Key>
+          <Property Name="USERGROUPSEQNO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GROUPNAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="GROUPDESCRIPTION" Type="nvarchar(max)" />
+          <Property Name="GROUPOWNER" Type="int" />
+          <Property Name="COMPANYID" Type="int" />
+          <Property Name="CREATEDBY" Type="int" />
+          <Property Name="CREATEDDATE" Type="datetime" />
+          <Property Name="UPDATEDBY" Type="int" />
+          <Property Name="UPDATEDDATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="300" />
+          <Property Name="FIRSTNAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="LASTNAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="EMAILADDRESS" Type="nvarchar" MaxLength="300" />
+          <Property Name="MOBILE" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" />
+          <Property Name="ROLEID" Type="int" />
+          <Property Name="USERTYPE" Type="char" MaxLength="1" />
+          <Property Name="PROFILEPICPATH" Type="nvarchar" MaxLength="300" />
+          <Property Name="COMPANYID" Type="int" />
+          <Property Name="CREATEDBY" Type="int" />
+          <Property Name="CREATEDDATE" Type="datetime" />
+          <Property Name="MODIFIEDBY" Type="int" />
+          <Property Name="MODIFIEDDATE" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="SUPMSModelStoreContainer">
+          <EntitySet Name="FEATUREASSIGN" EntityType="Self.FEATUREASSIGN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEATUREASSIGN_HISTORY" EntityType="Self.FEATUREASSIGN_HISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FEATURES" EntityType="Self.FEATURES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRIDVIEWS" EntityType="Self.GRIDVIEWS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERGROUPMAPPING" EntityType="Self.USERGROUPMAPPING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERGROUPS" EntityType="Self.USERGROUPS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SUPMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FEATUREASSIGN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENTITY" Type="Int32" />
+          <Property Name="ENTITYID" Type="Int32" />
+          <Property Name="ASSIGNTYPE" Type="Int32" />
+          <Property Name="ASSIGNUSER" Type="Int32" />
+          <Property Name="ASSIGNEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="ASSIGNEDBY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FEATUREASSIGN_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ENTITY" Type="Int32" />
+          <Property Name="ENTITYID" Type="Int32" />
+          <Property Name="ASSIGNTYPE" Type="Int32" />
+          <Property Name="ASSIGNUSER" Type="Int32" />
+          <Property Name="ASSIGNEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="ASSIGNEDBY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FEATURE">
+          <Key>
+            <PropertyRef Name="FEATUREID" />
+          </Key>
+          <Property Name="FEATUREID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FEATUREXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COMPANYID" Type="Int32" />
+          <Property Name="CREATEDBY" Type="Int32" />
+          <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="MODULE" Type="Int32" />
+          <Property Name="MODULENAME" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="ACTION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CONTROLLER" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AREA" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GRIDVIEW">
+          <Key>
+            <PropertyRef Name="VIEWSEQNO" />
+          </Key>
+          <Property Name="VIEWSEQNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VIEWNAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TABLENAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ALIASTABLENAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PRIMARYCOLUMN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FEATUREID" Type="Int32" />
+          <Property Name="SELECTEDCOLUMNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ALIASCOLUMNS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COLUMNSTYPE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COLUMNWIDTHS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="APPQUERY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WHERECONDITION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QUERY" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FITLERBYTENANT" Type="Boolean" />
+          <Property Name="ISSYSTEMVIEW" Type="Boolean" />
+          <Property Name="COMPANYID" Type="Int32" />
+          <Property Name="CREATEDBY" Type="Int32" />
+          <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIEDBY" Type="Int32" />
+          <Property Name="MODIFIEDDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ROLE">
+          <Key>
+            <PropertyRef Name="ROLEID" />
+          </Key>
+          <Property Name="ROLEID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="COMPANYID" Type="Int32" />
+          <Property Name="ISSYSTEMROLE" Type="Boolean" />
+          <Property Name="CREATEDBY" Type="Int32" />
+          <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIEDBY" Type="Int32" />
+          <Property Name="MODIFIEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="FEATURESXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="USERGROUPMAPPING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERGROUPSEQNO" Type="Int32" />
+          <Property Name="USERID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USERGROUP">
+          <Key>
+            <PropertyRef Name="USERGROUPSEQNO" />
+          </Key>
+          <Property Name="USERGROUPSEQNO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GROUPNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GROUPDESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GROUPOWNER" Type="Int32" />
+          <Property Name="COMPANYID" Type="Int32" />
+          <Property Name="CREATEDBY" Type="Int32" />
+          <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATEDBY" Type="Int32" />
+          <Property Name="UPDATEDDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USERID" />
+          </Key>
+          <Property Name="USERID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LASTNAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="EMAILADDRESS" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="MOBILE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" />
+          <Property Name="ROLEID" Type="Int32" />
+          <Property Name="USERTYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PROFILEPICPATH" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="COMPANYID" Type="Int32" />
+          <Property Name="CREATEDBY" Type="Int32" />
+          <Property Name="CREATEDDATE" Type="DateTime" Precision="3" />
+          <Property Name="MODIFIEDBY" Type="Int32" />
+          <Property Name="MODIFIEDDATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="SUPMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FEATUREASSIGNs" EntityType="Self.FEATUREASSIGN" />
+          <EntitySet Name="FEATUREASSIGN_HISTORY" EntityType="Self.FEATUREASSIGN_HISTORY" />
+          <EntitySet Name="FEATURES" EntityType="Self.FEATURE" />
+          <EntitySet Name="GRIDVIEWS" EntityType="Self.GRIDVIEW" />
+          <EntitySet Name="ROLES" EntityType="Self.ROLE" />
+          <EntitySet Name="USERGROUPMAPPINGs" EntityType="Self.USERGROUPMAPPING" />
+          <EntitySet Name="USERGROUPS" EntityType="Self.USERGROUP" />
+          <EntitySet Name="USERS" EntityType="Self.USER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SUPMSModelStoreContainer" CdmEntityContainer="SUPMSEntities">
+          <EntitySetMapping Name="FEATUREASSIGNs">
+            <EntityTypeMapping TypeName="SUPMSModel.FEATUREASSIGN">
+              <MappingFragment StoreEntitySet="FEATUREASSIGN">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ENTITY" ColumnName="ENTITY" />
+                <ScalarProperty Name="ENTITYID" ColumnName="ENTITYID" />
+                <ScalarProperty Name="ASSIGNTYPE" ColumnName="ASSIGNTYPE" />
+                <ScalarProperty Name="ASSIGNUSER" ColumnName="ASSIGNUSER" />
+                <ScalarProperty Name="ASSIGNEDDATE" ColumnName="ASSIGNEDDATE" />
+                <ScalarProperty Name="ASSIGNEDBY" ColumnName="ASSIGNEDBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEATUREASSIGN_HISTORY">
+            <EntityTypeMapping TypeName="SUPMSModel.FEATUREASSIGN_HISTORY">
+              <MappingFragment StoreEntitySet="FEATUREASSIGN_HISTORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ENTITY" ColumnName="ENTITY" />
+                <ScalarProperty Name="ENTITYID" ColumnName="ENTITYID" />
+                <ScalarProperty Name="ASSIGNTYPE" ColumnName="ASSIGNTYPE" />
+                <ScalarProperty Name="ASSIGNUSER" ColumnName="ASSIGNUSER" />
+                <ScalarProperty Name="ASSIGNEDDATE" ColumnName="ASSIGNEDDATE" />
+                <ScalarProperty Name="ASSIGNEDBY" ColumnName="ASSIGNEDBY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FEATURES">
+            <EntityTypeMapping TypeName="SUPMSModel.FEATURE">
+              <MappingFragment StoreEntitySet="FEATURES">
+                <ScalarProperty Name="FEATUREID" ColumnName="FEATUREID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="FEATUREXML" ColumnName="FEATUREXML" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="MODULE" ColumnName="MODULE" />
+                <ScalarProperty Name="MODULENAME" ColumnName="MODULENAME" />
+                <ScalarProperty Name="ACTION" ColumnName="ACTION" />
+                <ScalarProperty Name="CONTROLLER" ColumnName="CONTROLLER" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRIDVIEWS">
+            <EntityTypeMapping TypeName="SUPMSModel.GRIDVIEW">
+              <MappingFragment StoreEntitySet="GRIDVIEWS">
+                <ScalarProperty Name="VIEWSEQNO" ColumnName="VIEWSEQNO" />
+                <ScalarProperty Name="VIEWNAME" ColumnName="VIEWNAME" />
+                <ScalarProperty Name="TABLENAME" ColumnName="TABLENAME" />
+                <ScalarProperty Name="ALIASTABLENAME" ColumnName="ALIASTABLENAME" />
+                <ScalarProperty Name="PRIMARYCOLUMN" ColumnName="PRIMARYCOLUMN" />
+                <ScalarProperty Name="FEATUREID" ColumnName="FEATUREID" />
+                <ScalarProperty Name="SELECTEDCOLUMNS" ColumnName="SELECTEDCOLUMNS" />
+                <ScalarProperty Name="ALIASCOLUMNS" ColumnName="ALIASCOLUMNS" />
+                <ScalarProperty Name="COLUMNSTYPE" ColumnName="COLUMNSTYPE" />
+                <ScalarProperty Name="COLUMNWIDTHS" ColumnName="COLUMNWIDTHS" />
+                <ScalarProperty Name="APPQUERY" ColumnName="APPQUERY" />
+                <ScalarProperty Name="WHERECONDITION" ColumnName="WHERECONDITION" />
+                <ScalarProperty Name="QUERY" ColumnName="QUERY" />
+                <ScalarProperty Name="FITLERBYTENANT" ColumnName="FITLERBYTENANT" />
+                <ScalarProperty Name="ISSYSTEMVIEW" ColumnName="ISSYSTEMVIEW" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="MODIFIEDBY" ColumnName="MODIFIEDBY" />
+                <ScalarProperty Name="MODIFIEDDATE" ColumnName="MODIFIEDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROLES">
+            <EntityTypeMapping TypeName="SUPMSModel.ROLE">
+              <MappingFragment StoreEntitySet="ROLES">
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="ISSYSTEMROLE" ColumnName="ISSYSTEMROLE" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="MODIFIEDBY" ColumnName="MODIFIEDBY" />
+                <ScalarProperty Name="MODIFIEDDATE" ColumnName="MODIFIEDDATE" />
+                <ScalarProperty Name="FEATURESXML" ColumnName="FEATURESXML" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERGROUPMAPPINGs">
+            <EntityTypeMapping TypeName="SUPMSModel.USERGROUPMAPPING">
+              <MappingFragment StoreEntitySet="USERGROUPMAPPING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="USERGROUPSEQNO" ColumnName="USERGROUPSEQNO" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERGROUPS">
+            <EntityTypeMapping TypeName="SUPMSModel.USERGROUP">
+              <MappingFragment StoreEntitySet="USERGROUPS">
+                <ScalarProperty Name="USERGROUPSEQNO" ColumnName="USERGROUPSEQNO" />
+                <ScalarProperty Name="GROUPNAME" ColumnName="GROUPNAME" />
+                <ScalarProperty Name="GROUPDESCRIPTION" ColumnName="GROUPDESCRIPTION" />
+                <ScalarProperty Name="GROUPOWNER" ColumnName="GROUPOWNER" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="UPDATEDBY" ColumnName="UPDATEDBY" />
+                <ScalarProperty Name="UPDATEDDATE" ColumnName="UPDATEDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="SUPMSModel.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="EMAILADDRESS" ColumnName="EMAILADDRESS" />
+                <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="ROLEID" ColumnName="ROLEID" />
+                <ScalarProperty Name="USERTYPE" ColumnName="USERTYPE" />
+                <ScalarProperty Name="PROFILEPICPATH" ColumnName="PROFILEPICPATH" />
+                <ScalarProperty Name="COMPANYID" ColumnName="COMPANYID" />
+                <ScalarProperty Name="CREATEDBY" ColumnName="CREATEDBY" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="MODIFIEDBY" ColumnName="MODIFIEDBY" />
+                <ScalarProperty Name="MODIFIEDDATE" ColumnName="MODIFIEDDATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

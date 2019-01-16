@@ -1,0 +1,49 @@
+﻿<MENUITEMS>
+  <MENUITEM TEXT="Home" KEY="Home" FEATUREID="100" ACTION="Dashboard" CONTROLLER="Home" ICON ="icon-speedometer Home">
+  </MENUITEM>
+  <MENUITEM TEXT="Repository" KEY="Repository" FEATUREID="101" ACTION="NDashboard" CONTROLLER="Home" ICON ="left-nav repo">
+  </MENUITEM>
+
+  <MENUITEM TEXT="My Files" KEY="MyFiles" FEATUREID="106" ACTION="NDashboard?MyFiles=1" CONTROLLER="Home" ICON="left-nav Files" SUBTYPE="1"  EDITAREA="" EDITCONTROLLER="" EDITACTION="" >
+    <SUBMENUITEMS>
+      <FItem TEXT="My Files" KEY="MyFiles" FEATUREID="106" ACTION="NDashboard?MyFiles=1" CONTROLLER="Home" SUBTYPE="1" ICON="left-nav Files" EDITAREA="" EDITCONTROLLER="" EDITACTION=""/>
+      <FItem TEXT="My Favorites" KEY="MyFavorites" FEATUREID="501" ACTION="NDashboard?MyFiles=1&#38;MyFilesType=2" CONTROLLER="Home" ICON="left-nav Files" EDITAREA="" EDITCONTROLLER="" EDITACTION="" />
+      <FItem TEXT="Recent Documents" KEY="RecentDocuments" FEATUREID="502" ACTION="NDashboard?MyFiles=1&#38;MyFilesType=3" CONTROLLER="Home" ICON="left-nav Files" EDITAREA="" EDITCONTROLLER="" EDITACTION=""/>      
+      <FItem TEXT="Checkout Files" KEY="CheckoutFiles" FEATUREID="503" ACTION="NDashboard?MyFiles=1&#38;MyFilesType=4" CONTROLLER="Home" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Home" EDITACTION="CheckoutFiles"  />
+      <FItem TEXT="Trash Files" KEY="TrashFiles" FEATUREID="504" ACTION="NDashboard?MyFiles=1&#38;MyFilesType=5" CONTROLLER="Home" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Home" EDITACTION="ArchiveFiles"  />
+    </SUBMENUITEMS>
+  </MENUITEM>
+  
+  <MENUITEM TEXT="Activities" KEY="Activities" FEATUREID="102" ACTION="" CONTROLLER="Home" ICON="left-nav Activities">
+    <SUBMENUITEMS>
+      <FItem TEXT="Tasks" KEY="Tasks" FEATUREID="111" ACTION="CommonGrid?FEATUREID=111" CONTROLLER="Home" SUBTYPE="1" EDITAREA=""  ICON ="" EDITCONTROLLER="Tasks" EDITACTION="Task" />
+      <FItem TEXT="Events" KEY="Events" FEATUREID="112" ACTION="EventsList" CONTROLLER="Events" SUBTYPE="1" EDITAREA=""  ICON ="" EDITCONTROLLER="Events" EDITACTION="" />
+    </SUBMENUITEMS>
+  </MENUITEM>
+  <MENUITEM TEXT="Reports" KEY="Reports" FEATUREID="103" ACTION="" CONTROLLER="Reports" ICON="left-nav Reports">
+    <SUBMENUITEMS>
+      <FItem TEXT="Schedule Reports" KEY="ScheduleReports" FEATUREID="401" ACTION="" CONTROLLER="Reports" SUBTYPE="1" EDITAREA=""  ICON ="" EDITCONTROLLER="Reports" EDITACTION="Report" />
+    </SUBMENUITEMS>
+  </MENUITEM>
+  <MENUITEM TEXT="Global Settings" KEY="GlobalSettings" FEATUREID="104" ACTION="GlobalSettings?FEATUREID=201" CONTROLLER="Settings" ICON="left-nav Settings">
+    <SUBMENUITEMS>
+      <FItem TEXT="Configuration" KEY="Configuration" FEATUREID="201" ACTION="GlobalSettings?FEATUREID=201" CONTROLLER="Settings" SUBTYPE="1" EDITAREA=""  ICON ="" EDITCONTROLLER="Settings" EDITACTION="GlobalSettings" />
+      <FItem TEXT="Email/SMS Settings" KEY="EmailSettings" FEATUREID="210" ACTION="EmailSettings" CONTROLLER="Settings" SUBTYPE="" EDITAREA="Admin"  ICON ="" EDITCONTROLLER="Settings" EDITACTION="EmailSettings" />
+      <FItem TEXT="Languages" KEY="Languages" FEATUREID="202" ACTION="CommonGrid?FEATUREID=202" CONTROLLER="Home" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION="Language"  />
+      <FItem TEXT="Email/SMS Template" KEY="EmailTemplate" FEATUREID="211" ACTION="CommonGrid?FEATUREID=211" CONTROLLER="Home" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION="EmailTemplate"  />
+      <FItem TEXT="Seqence Configurator" KEY="SeqenceConfigurator" FEATUREID="212" ACTION="VoucherConfigurator" CONTROLLER="Common" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Common" EDITACTION="VoucherConfigurator"  />
+      <FItem TEXT="Schedulers" KEY="Schedulers" FEATUREID="215" ACTION="Schedulers" CONTROLLER="Settings" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION="Schedulers"  />      
+    </SUBMENUITEMS>
+  </MENUITEM>
+  <MENUITEM TEXT="Administrator" KEY="Administrator" FEATUREID="105" ACTION="CommonGrid?FEATUREID=301" CONTROLLER="Home" ICON ="left-nav Admin">
+    <SUBMENUITEMS>
+      <FItem TEXT="Users" KEY="Users" FEATUREID="301" ACTION="CommonGrid?FEATUREID=301" CONTROLLER="Home" SUBTYPE="1" ICON ="" EDITAREA="" EDITCONTROLLER="Users" EDITACTION="User" />
+      <FItem TEXT="Roles" KEY="Roles" FEATUREID="303" ACTION="CommonGrid?FEATUREID=303" CONTROLLER="Home" SUBTYPE="1" ICON ="" EDITAREA="" EDITCONTROLLER="Users" EDITACTION="Roles" />
+      <FItem TEXT="Departments" KEY="Departments" FEATUREID="304" ACTION="CommonGrid?FEATUREID=304" CONTROLLER="Home" SUBTYPE="1" ICON ="" EDITAREA="" EDITCONTROLLER="Users" EDITACTION="UsersGroup" />
+      <FItem TEXT="Workflow Approval" KEY="WorkflowApproval" FEATUREID="213" ACTION="WorkflowApproval" CONTROLLER="Settings" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION="WorkflowApproval"  />
+      <FItem TEXT="Pending Files Folders" KEY="PendingFilesFolders" FEATUREID="214" ACTION="PendingFilesFolders" CONTROLLER="Settings" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION="PendingFilesFolders"  />
+      <FItem TEXT="Rejected Files Folders" KEY="RejectedFilesFolders" FEATUREID="216" ACTION="NDashboard?MyFiles=0&#38;MyFilesType=9" CONTROLLER="Home" SUBTYPE="" ICON ="" EDITAREA=""  EDITCONTROLLER="Settings" EDITACTION=""  />
+    </SUBMENUITEMS>
+  </MENUITEM>
+
+</MENUITEMS>

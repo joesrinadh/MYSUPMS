@@ -1,0 +1,21 @@
+﻿@{ 
+    string actionName = ViewContext.RouteData.Values["action"].ToString();
+    string controllerName = ViewContext.RouteData.Values["controller"].ToString();
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        @Html.ActionLink(controllerName, "Index", controllerName)
+    </li>
+    @if (actionName != ViewData["Name"].ToString() && actionName != "Index")
+    {
+        <li class="@(ViewData["Name"] != null ? "breadcrumb-item" : "breadcrumb-item active")">
+            @Html.ActionLink(actionName, actionName, controllerName, new { id = "" })
+        </li>
+    }
+    @if (ViewData["Name"] != null)
+    {
+        <li class="breadcrumb-item active">
+            @ViewData["Name"]
+        </li>
+    }
+</ol>

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,AngularJS,Angular,Angular2,Angular 2,Angular4,Angular 4,jQuery,CSS,HTML,RWD,Dashboard,React,React.js,Vue,Vue.js">
+    <link rel="shortcut icon" href="~/img/favicon.png">
+    <title>@ViewData["Title"] - Supplier management system</title>
+    <!-- Icons -->
+    <link href="~/Content/LayoutCss/flag-icon.css" rel="stylesheet" />
+    <link href="~/Content/LayoutCss/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/LayoutCss/simple-line-icons.css" rel="stylesheet" />
+    <!-- Main styles for this application -->
+    <link href="~/Content/LayoutCss/style.css" rel="stylesheet" />
+</head>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+    @Html.Partial("_AppHeader")
+    <div class="app-body">
+        <div class="sidebar">
+            @Html.Partial("_SidebarNav")
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+        <main class="main">
+            @Html.Partial("_BreadCrumb")
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </main>
+        @Html.Partial("_AsideMenu")
+    </div>
+    @Html.Partial("_Footer")
+    <!-- Bootstrap and necessary plugins -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/LayoutScripts/bootstrap/dist/js/bootstrap.min.js"></script>>
+    <!-- Plugins and scripts required by all views -->
+    <script src="~/Scripts/LayoutScripts/Chart.min.js"></script>
+    <!-- CoreUI main scripts -->
+    <script src="~/Scripts/LayoutScripts/app.js"></script>
+    <!-- Plugins and scripts required by this views -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
